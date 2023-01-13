@@ -57,32 +57,26 @@
                                 <td class="align-middle">
                                     <h6 class="mb-0 px-3">{{ $data->jabatan->nama_jabatan }}</h6>
                                 </td>
-                                @if (!Request::routeIs('user.sales') || $data->id_jabatan != 4)
-                                    @if ($data->id_jabatan != 4)
-                                        <td class="align-middle">
-                                            <div id="inputReadonly{{ $data->id_user }}" class="d-flex gap-1 align-items-center">
-                                                <input readonly type="text" style="color: #344767;font-size: 1rem;line-height: 1.625" class="form-control border px-3 w-50 fw-bold" value="{{ $data->projek->nama_projek ?? '' }}">
-                                                <button class="btn btn-warning btn-sm mb-0" onclick="ubahProjek({{ $data->id_user }})">Ubah</button>
-                                            </div>
-                                            <form id="formProjek{{ $data->id_user }}" action="{{ route('user.updateUserProjek', $data->id_user) }}" method="POST" class="d-none">
-                                                @csrf
-                                                @method('PATCH')
-                                                <div class="d-flex gap-1 align-items-center">
-                                                    <select name="id_projek" id="id_projek" style="color: #344767;font-size: 1rem;line-height: 1.625" class="form-select px-3 w-50 fw-bold bg-white">
-                                                        <option value=null></option>
-                                                        @foreach ($projek as $item)
-                                                            <option {{ ( $item->id_projek == $data->id_projek) ? 'selected' : '' }} value="{{ $item->id_projek }}">{{ $item->nama_projek }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <button type="button" class="btn btn-secondary btn-sm mb-0" onclick="batalubahProjek({{ $data->id_user }})">Batal</button>
-                                                    <button type="submit" class="btn btn-success btn-sm mb-0">Simpan</button>
-                                                </div>
-                                            </form>
-                                        </td>
-                                    @else
-                                        <td></td>
-                                    @endif
-                                @endif
+                                <td class="align-middle">
+                                    <div id="inputReadonly{{ $data->id_user }}" class="d-flex gap-1 align-items-center">
+                                        <input readonly type="text" style="color: #344767;font-size: 1rem;line-height: 1.625" class="form-control border px-3 w-50 fw-bold" value="{{ $data->projek->nama_projek ?? '' }}">
+                                        <button class="btn btn-warning btn-sm mb-0" onclick="ubahProjek({{ $data->id_user }})">Ubah</button>
+                                    </div>
+                                    <form id="formProjek{{ $data->id_user }}" action="{{ route('user.updateUserProjek', $data->id_user) }}" method="POST" class="d-none">
+                                        @csrf
+                                        @method('PATCH')
+                                        <div class="d-flex gap-1 align-items-center">
+                                            <select name="id_projek" id="id_projek" style="color: #344767;font-size: 1rem;line-height: 1.625" class="form-select px-3 w-50 fw-bold bg-white">
+                                                <option value=null></option>
+                                                @foreach ($projek as $item)
+                                                    <option {{ ( $item->id_projek == $data->id_projek) ? 'selected' : '' }} value="{{ $item->id_projek }}">{{ $item->nama_projek }}</option>
+                                                @endforeach
+                                            </select>
+                                            <button type="button" class="btn btn-secondary btn-sm mb-0" onclick="batalubahProjek({{ $data->id_user }})">Batal</button>
+                                            <button type="submit" class="btn btn-success btn-sm mb-0">Simpan</button>
+                                        </div>
+                                    </form>
+                                </td>
                                 <td class="align-middle">
                                     <button class="btn btn-link text-secondary mb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa fa-ellipsis-v text-xs"></i>
