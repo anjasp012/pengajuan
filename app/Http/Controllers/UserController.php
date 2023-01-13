@@ -44,7 +44,8 @@ class UserController extends Controller
         $actived = 'User';
         $dropdown = 'Sales';
         $user = User::where('id_jabatan', 4)->get();
-        return view('page.user.index', compact('actived', 'user', 'dropdown'));
+        $projek = Projek::all();
+        return view('page.user.index', compact('actived', 'user', 'dropdown', 'projek'));
     }
 
     /**

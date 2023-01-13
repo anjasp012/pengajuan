@@ -39,9 +39,7 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jabatan</th>
-                            @if (!Request::routeIs('user.sales'))
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Projek</th>
-                            @endif
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Projek</th>
                             <th class="text-secondary opacity-7">Aksi</th>
                         </tr>
                     </thead>
